@@ -1,0 +1,24 @@
+/* Assure-toi que HTML prennent tout l'écran */
+html ,footer{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #111; /* ou la couleur de fond que tu veux */
+}
+
+/* Le conteneur principal de ton App */
+#root {
+  min-height: 100vh;
+  width:100%;
+  display: flex;
+  flex-direction: column;
+  background-color: whitesmoke;
+}
+
+/* Supprime toute restriction de largeur si tu utilises un conteneur */
+.container {
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+}

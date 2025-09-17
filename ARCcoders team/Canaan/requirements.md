@@ -1,0 +1,224 @@
+# Project Canaan - Setup & Requirements
+
+This document outlines all the necessary dependencies, environment configurations, and steps required to set up and run the Canaan project locally.
+
+## 1. Prerequisites
+
+- **Node.js**: `v18.0.0` or later.
+- **Package Manager**: [pnpm](https://pnpm.io/installation) (`v8.0.0` or later recommended). This project uses a `pnpm-lock.yaml` file, so using `pnpm` is required to ensure consistent dependency installation.
+- **Database**: A running PostgreSQL instance. (This project is configured to use Supabase's PostgreSQL hosting).
+
+## 2. Environment Variables
+
+Before running the application, you must create a `.env.local` file in the root of the project. This file stores all required secret keys and configuration variables.
+
+Copy the following template into your `.env.local` file and replace the placeholder values with your actual credentials.
+
+```env
+# ------------------------------
+# DATABASE (Prisma + Supabase)
+# ------------------------------
+# Found in Supabase -> Project Settings -> Database -> Connection string (use the one with pgbouncer for pooling)
+DATABASE_URL="postgresql://postgres:[YOUR-PASSWORD]@aws-0-us-east-2.pooler.supabase.com:6543/postgres?pgbouncer=true&statement_cache_size=0"
+# Found in Supabase -> Project Settings -> Database -> Connection string (use the non-pooling one for migrations)
+DIRECT_URL="postgresql://postgres:[YOUR-PASSWORD]@aws-0-us-east-2.pooler.supabase.com:5432/postgres"
+
+# ------------------------------
+# SUPABASE (Client-side)
+# ------------------------------
+# Found in Supabase -> Project Settings -> API
+NEXT_PUBLIC_SUPABASE_URL="https://your-project-ref.supabase.co"
+NEXT_PUBLIC_SUPABASE_ANON_KEY="your-supabase-anon-key"
+
+# ------------------------------
+# FIREBASE AUTH (next-firebase-auth-edge)
+# ------------------------------
+# Create a service account in Firebase -> Project Settings -> Service Accounts -> Generate new private key
+# The full JSON content should be pasted as a single-line string.
+FIREBASE_ADMIN_SDK_CONFIG='{"type": "service_account", "project_id": "...", ...}'
+
+# Found in Firebase -> Project Settings -> General
+NEXT_PUBLIC_FIREBASE_API_KEY="your-public-firebase-api-key"
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN="your-project-id.firebaseapp.com"
+NEXT_PUBLIC_FIREBASE_PROJECT_ID="your-firebase-project-id"
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET="your-project-id.appspot.com"
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID="..."
+NEXT_PUBLIC_FIREBASE_APP_ID="..."
+
+# ------------------------------
+# AUTH COOKIE SECRETS
+# ------------------------------
+# Generate two random strings (32+ characters) for cookie encryption
+COOKIE_SECRET_CURRENT="a_very_strong_random_secret_string_1"
+COOKIE_SECRET_PREVIOUS="a_very_strong_random_secret_string_2"
+# Set to true in production with HTTPS
+USE_SECURE_COOKIES=false
+
+# ------------------------------
+# AI SERVICES
+# ------------------------------
+# Found in Google AI Studio or Google Cloud Console
+GEMINI_API_KEY="your_google_gemini_api_key"
+# Found in your Jina AI dashboard
+JINA_API_KEY="your_jina_api_key"
+```
+
+## 3. NPM Packages (Dependencies)
+
+All required packages are listed in the `package.json` file. The `pnpm install` command will automatically install the correct versions listed below.
+
+### Production Dependencies (`dependencies`)
+
+```json
+{
+	"@firebase/app-check": "^0.11.0",
+	"@google/generative-ai": "^0.24.1",
+	"@hookform/resolvers": "^3.10.0",
+	"@langchain/anthropic": "^0.2.18",
+	"@langchain/community": "^0.3.53",
+	"@langchain/core": "^0.3.71",
+	"@langchain/google-genai": "^0.2.16",
+	"@langchain/openai": "^0.6.9",
+	"@langchain/textsplitters": "^0.1.0",
+	"@maplibre/maplibre-gl-leaflet": "^0.0.20",
+	"@openhistoricalmap/maplibre-gl-dates": "^1.3.0",
+	"@prisma/client": "^6.14.0",
+	"@radix-ui/react-accordion": "1.2.2",
+	"@radix-ui/react-alert-dialog": "1.1.4",
+	"@radix-ui/react-aspect-ratio": "1.1.1",
+	"@radix-ui/react-avatar": "1.1.2",
+	"@radix-ui/react-checkbox": "^1.3.3",
+	"@radix-ui/react-collapsible": "1.1.2",
+	"@radix-ui/react-context-menu": "2.2.4",
+	"@radix-ui/react-dialog": "^1.1.15",
+	"@radix-ui/react-dropdown-menu": "2.1.4",
+	"@radix-ui/react-hover-card": "1.1.4",
+	"@radix-ui/react-label": "^2.1.7",
+	"@radix-ui/react-menubar": "1.1.4",
+	"@radix-ui/react-navigation-menu": "1.2.3",
+	"@radix-ui/react-popover": "1.1.4",
+	"@radix-ui/react-progress": "1.1.1",
+	"@radix-ui/react-radio-group": "1.2.2",
+	"@radix-ui/react-scroll-area": "latest",
+	"@radix-ui/react-select": "^2.2.6",
+	"@radix-ui/react-separator": "^1.1.7",
+	"@radix-ui/react-slider": "^1.3.6",
+	"@radix-ui/react-slot": "^1.2.3",
+	"@radix-ui/react-switch": "1.1.2",
+	"@radix-ui/react-tabs": "^1.1.13",
+	"@radix-ui/react-toast": "1.2.4",
+	"@radix-ui/react-toggle": "1.1.1",
+	"@radix-ui/react-toggle-group": "1.1.1",
+	"@radix-ui/react-tooltip": "1.1.6",
+	"@supabase/ssr": "^0.6.1",
+	"@supabase/supabase-js": "^2.55.0",
+	"@tailwindcss/typography": "^0.5.16",
+	"@tanstack/react-query": "^5.85.3",
+	"@tiptap/extension-color": "^3.0.7",
+	"@tiptap/extension-highlight": "^3.0.7",
+	"@tiptap/extension-image": "^3.0.7",
+	"@tiptap/extension-link": "^3.0.7",
+	"@tiptap/extension-placeholder": "^3.0.7",
+	"@tiptap/extension-table": "^3.0.7",
+	"@tiptap/extension-table-cell": "^3.0.7",
+	"@tiptap/extension-table-header": "^3.0.7",
+	"@tiptap/extension-table-row": "^3.0.7",
+	"@tiptap/extension-text-style": "^3.0.7",
+	"@tiptap/react": "^3.0.7",
+	"@tiptap/starter-kit": "^3.0.7",
+	"@uploadthing/react": "^7.3.3",
+	"axios": "^1.11.0",
+	"class-variance-authority": "^0.7.1",
+	"clsx": "^2.1.1",
+	"cmdk": "1.0.4",
+	"date-fns": "4.1.0",
+	"embla-carousel-react": "8.5.1",
+	"eventemitter3": "^5.0.1",
+	"firebase": "^12.1.0",
+	"firebase-admin": "^13.4.0",
+	"geist": "^1.3.1",
+	"gsap": "^3.13.0",
+	"html-to-text": "^9.0.5",
+	"input-otp": "1.4.1",
+	"jszip": "^3.10.1",
+	"langchain": "^0.3.30",
+	"langdetect": "^0.2.1",
+	"leaflet": "^1.9.4",
+	"lru-cache": "^11.1.0",
+	"lucide-react": "^0.539.0",
+	"maplibre-gl": "^4.0.2",
+	"motion": "^12.23.12",
+	"next": "14.2.30",
+	"next-firebase-auth-edge": "^1.11.0",
+	"next-themes": "^0.4.6",
+	"openai": "^5.12.2",
+	"query-string": "^9.2.2",
+	"rc-slider": "^11.1.8",
+	"react": "^18.3.1",
+	"react-day-picker": "9.8.0",
+	"react-dom": "^18.3.1",
+	"react-hook-form": "^7.62.0",
+	"react-leaflet": "^4.2.1",
+	"react-loading-hook": "^1.1.2",
+	"react-markdown": "^10.1.0",
+	"react-resizable-panels": "^2.1.7",
+	"reactflow": "^11.11.4",
+	"recharts": "2.15.0",
+	"rehype-raw": "^7.0.0",
+	"remark-gfm": "^4.0.1",
+	"sonner": "^2.0.7",
+	"tailwind-merge": "^3.3.1",
+	"uuid": "^11.1.0",
+	"vaul": "^0.9.6",
+	"zod": "^3.25.76"
+}
+```
+
+### Development Dependencies (`devDependencies`)
+
+```json
+{
+	"@types/leaflet": "^1.9.8",
+	"@types/node": "^22",
+	"@types/react": "^18",
+	"@types/react-dom": "^18",
+	"autoprefixer": "^10.4.20",
+	"postcss": "^8.5",
+	"prisma": "^6.14.0",
+	"prisma-case-format": "^2.2.1",
+	"tailwindcss": "^3.4.17",
+	"tailwindcss-animate": "^1.0.7",
+	"typescript": "^5"
+}
+```
+
+## 4. Setup and Installation Steps
+
+1.  **Clone the repository:**
+
+    ```bash
+    git clone https://github.com/haithemyoucefkhoudja/Canaan.git
+    cd canaan
+    ```
+
+2.  **Install dependencies:**
+    Run the following command to install all dependencies from the `pnpm-lock.yaml` file.
+
+    ```bash
+    pnpm install
+    ```
+
+3.  **Set up the database:**
+    Run the Prisma migration command to set up your database schema. This command requires the `DIRECT_URL` to be correctly set in your `.env.local` file.
+
+    ```bash
+    pnpm exec prisma migrate dev
+    ```
+
+4.  **Run the application:**
+    Start the Next.js development server.
+    ```bash
+    pnpm dev
+    ```
+
+The application will now be running at [http://localhost:3000](http://localhost:3000).

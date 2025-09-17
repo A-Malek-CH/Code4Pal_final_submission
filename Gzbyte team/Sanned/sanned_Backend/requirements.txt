@@ -1,0 +1,13 @@
+Flask>=3.0,<4
+Flask-SQLAlchemy>=3.1,<4
+Flask-Migrate>=4.0,<5
+Flask-JWT-Extended>=4.6,<5
+Flask-Cors>=4.0,<5
+Flask-Bcrypt>=1.0,<2
+python-dotenv>=1.0,<2
+requests>=2.32,<3
+tenacity>=8.2,<9
+Shapely>=2.0,<3
+# Database driver (pick one). SQLite works without extra install.
+# psycopg2-binary>=2.9,<3
+# mysqlclient>=2.2,<3

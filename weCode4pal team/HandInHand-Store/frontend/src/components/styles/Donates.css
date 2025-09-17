@@ -1,0 +1,35 @@
+.principle {
+  background-color: #1e1e1e;
+  padding: 50px 20px;
+  text-align: center;
+  direction: rtl; /* Pour texte arabe */
+}
+.donates-section {
+  padding: 20px 0;
+}
+
+.donates-container {
+  display: flex;
+  justify-content: center;
+  gap: 60px; /* space between items */
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.donate-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.donate-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffd700; /* Yellow color */
+}
+
+.donate-label {
+  font-size: 16px;
+  color: white;
+  margin-top: 5px;
+}

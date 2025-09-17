@@ -1,0 +1,583 @@
+{
+  "login_title": "Log In",
+  "email_label": "Email",
+  "password_label": "Password",
+  "login_button": "Log In",
+  "forgot_password": "Forgot Password?",
+  "forgot_password_title": "Forgot Password",
+  "reset_button_": "Send Reset code",
+  "reset_button": "Reset Password",
+  "reset_password_p": "Enter a new password for your account",
+  "register_p": "Welcome to our store Hand in Hand to help GAZA",
+  "login_p": "Welcome Back to Hand In Hand Store",
+  "reset_sent_message": "A reset link wil be sent to your email.",
+  "verify_code_title": "Check your Email",
+  "verify_code_p": "A code is sent to your email",
+  "error_code_required": "Code is required",
+  "error_reset_failed": "Failed to send reset email",
+  "back_to_login": "Back to Login",
+  "no_account": "Don't have an account?",
+  "register_link": "Register Now",
+  "english": "English",
+  "arabic": "Arabic",
+  "username_placeholder": "Enter your username",
+  "password_placeholder": "Enter your password",
+  "error_email_required": "Email is required",
+  "error_invalid_email": "Please enter a valid email address",
+  "error_password_required": "Password is required",
+  "error_password_length": "Password must be at least 6 characters",
+  "error_login_failed": "Login failed",
+  "success_login": "Login successful!",
+  "loading": "Loading...",
+  "register_title": "Register Now",
+  "register_button": "Register",
+  "have_account": "Already have an account?",
+  "login_link": "Log In",
+  "username_label": "Username",
+  "email_placeholder": "Enter your email",
+  "phone_label": "Phone Number",
+  "phone_placeholder": "Enter your phone number",
+  "reassure_password_label": "Confirm Password",
+  "reassure_placeholder": "Confirm your password",
+  "error_username_required": "Username is required",
+  "error_phone_required": "Phone number is required",
+  "error_password_mismatch": "Passwords do not match",
+  "error_register_failed": "Registration failed",
+  "success_register": "Registration successful!",
+  "reset_password_title": "Reset Password",
+  "reset_sent": "Please Check your email",
+  "open_email_button": "Open Email Inbox",
+  "no_email": "Did not receive an email?",
+  "resend_email": "click here",
+  "admin_login_title": "Admin Log In",
+  "search_products_placeholder": "search for products",
+  "home_page": "Home",
+  "products": "Products",
+  "donation": "Donations",
+  "aboutUs": "About Us",
+  "Communicate_with_us": "Communicate Us",
+  "Login": "Login",
+  "register": "Register",
+  "Store": "Store",
+  "HandInHand": "HandInHand",
+  "for_all": "for all",
+  "display_details": "More details",
+  "similar_products": "Similar Products",
+  "how_it_works": "How does our store work?",
+  "how_it_works_desc": "An easy-to-use platform connecting sellers and buyers to support the Palestinian cause",
+  "real_impact_title": "Real Impact",
+  "real_impact_desc": "Real stories about how your donations help families in Gaza",
+  "full_transparency_title": "Full Transparency",
+  "full_transparency_desc": "Track your donations and see in detail who benefits",
+  "percentage_title": "Percentage",
+  "percentage_desc": "Choose a product or transaction and decide a percentage to directly support Gaza families",
+  "featured_products": "Featured Products for Donation",
+  "featured_products_desc": "Shop from these products where sellers donate 100% of the profit",
+  "donations_impact": "The Impact of Your Donations",
+  "real_stats": "Real statistics about the difference you make",
+  "total_donations": "Total Donations",
+  "benefited_families": "Benefited Families",
+  "funded_projects": "Funded Projects",
+  "transparency": "Transparency",
+  "beneficiaries.header.title": "Words from Beneficiaries",
+  "beneficiaries.header.subtitle": "Real stories about the impact of your donations",
+  "footer": {
+    "title": "Gaza Store for All",
+    "description": "An online platform that enables you to support the people of Gaza through buying and selling.",
+    "quickLinks": {
+      "title": "Quick Links",
+      "home": "Home",
+      "products": "All Products",
+      "donations": "Donations",
+      "about": "About Us",
+      "contact": "Contact Us"
+    },
+    "help": {
+      "title": "Help",
+      "faq": "FAQ",
+      "shipping": "Shipping & Delivery",
+      "returns": "Return Policy",
+      "privacy": "Privacy Policy",
+      "terms": "Terms & Conditions"
+    },
+    "categories": {
+      "title": "Product Categories",
+      "electronics": "Electronics",
+      "clothes": "Clothes",
+      "books": "Books",
+      "home": "Home Appliances",
+      "art": "Artworks"
+    },
+    "contact": {
+      "title": "Contact Us",
+      "email": "info@gaza-store.com",
+      "phone": "0123456789",
+      "address": "Algeria"
+    },
+    "bottom": "Gaza Store for All - All rights reserved."
+  },
+
+  "languageSection": {
+    "title": "Language and Region",
+    "description": "Manage language and timezone settings",
+    "languageLabel": "Language *",
+    "arabic": "Arabic",
+    "english": "English",
+    "currencyLabel": "Currency *",
+    "ils": "New Shekel (₪)",
+    "usd": "US Dollar ($)",
+    "eur": "Euro (€)",
+    "dateFormatLabel": "Date Format",
+    "dateFormat1": "Day/Month/Year (27/07/2025)",
+    "dateFormat2": "Month/Day/Year (07/27/2025)",
+    "dateFormat3": "Year-Month-Day (2025-07-27)",
+    "saveButton": "Save Settings"
+  },
+
+  "profilePage": {
+    "title": "Settings",
+    "description": "Manage your account settings and store preferences to support the people of Gaza",
+    "nav": {
+      "profile": "Profile",
+      "security": "Security",
+      "notifications": "Notifications",
+      "store": "Store Settings",
+      "donation": "Donation Preferences",
+      "language": "Language and Region",
+      "delete": "Delete Account"
+    },
+    "notifications": {
+      "title": "Notifications",
+      "description": "Manage notification and communication preferences",
+      "emailLabel": "Email Notifications",
+      "emailDescription": "Receive important updates via email",
+      "inAppLabel": "In-App Notifications",
+      "inAppDescription": "Receive notifications within the store when updates occur",
+      "newOrdersLabel": "New Order Notifications",
+      "newOrdersDescription": "Receive a notification when new orders are received",
+      "donationsLabel": "Donation Notifications",
+      "donationsDescription": "Receive updates about the impact of your donations in Gaza",
+      "offersLabel": "Store Offers and Updates",
+      "offersDescription": "Receive special offers and updates from the store",
+      "saveButton": "Save Changes"
+    },
+    "store": {
+      "title": "Store Settings",
+      "description": "Manage your store settings",
+      "storeNameLabel": "Store Name *",
+      "storeNameDefault": "Gaza Store for All",
+      "storeDescriptionLabel": "Store Description",
+      "storeDescriptionDefault": "Gaza Store for All is a platform for selling products and directing all profits to support families in need in Gaza. We strive to offer the best products with the greatest benefit for our people in Gaza.",
+      "storeAddressLabel": "Store Address",
+      "storeAddressDefault": "Omar Al-Mukhtar Street, Gaza",
+      "storeLogoLabel": "Store Logo",
+      "storeLogoAlt": "Store Logo",
+      "changeLogoButton": "Change Logo",
+      "logoSizeHint": "The logo should be a maximum of 300×300 pixels",
+      "cancelButton": "Cancel",
+      "saveButton": "Save Changes"
+    },
+    "donation": {
+      "title": "Donation Preferences",
+      "description": "Manage donation settings to support the people of Gaza",
+      "donationPercentLabel": "Default Donation Percentage from Profits",
+      "donationPercentInfo": "Your {percent}% donation means {percent, select, 100 {all} other {{percent}% of}} profits will go to support the people of Gaza",
+      "recipientLabel": "Donation Recipient",
+      "recipientOptions": {
+        "unrwa": "UNRWA - Gaza",
+        "redCrescent": "Palestinian Red Crescent",
+        "medicalAid": "Medical Aid Center",
+        "other": "Other Organization"
+      },
+      "reportLabel": "Donation Reports",
+      "reportToggleLabel": "Send Monthly Donation Reports",
+      "reportToggleDescription": "Receive a detailed monthly report about your donations and their impact",
+      "saveButton": "Save Preferences"
+    }
+  },
+  "deleteSection": {
+    "title": "Delete Account",
+    "description": "Permanently delete your account from the platform",
+    "warningTitle": "Warning: This action is final and cannot be undone",
+    "warningDescription": "When you delete your account:",
+    "warningPoints": [
+      "All your personal data will be permanently removed",
+      "All active products in your store will be discontinued",
+      "All incomplete orders will be canceled",
+      "You will no longer be able to access your donation history"
+    ],
+    "exportRecommendation": "We recommend exporting your data before proceeding with account deletion.",
+    "confirmLabel": "Type \"Delete my account\" to confirm *",
+    "confirmPlaceholder": "Delete my account",
+    "confirmButton": "Permanently Delete My Account",
+    "confirmText": "Delete my account",
+    "confirmPrompt": "Are you absolutely sure you want to permanently delete your account? This action cannot be undone.",
+    "successMessage": "Your account has been successfully deleted. We are sorry to see you go and thank you for your support for the people of Gaza.",
+    "errorMessage": "Failed to delete the account, please try again.",
+    "invalidConfirmMessage": "Please type \"Delete my account\" correctly to confirm."
+  },
+  "profileSection": {
+    "title": "Profile",
+    "description": "Manage your personal account information and profile picture",
+    "fullNameLabel": "Full Name",
+    "emailLabel": "Email *",
+    "phoneLabel": "Phone Number",
+    "addressLabel": "Location",
+    "bioLabel": "About You",
+    "imageAlt": "User Image",
+    "uploadButton": "Upload Image",
+    "removeButton": "Remove Image",
+    "imageSizeHint": "The image must be less than 2MB",
+    "cancelButton": "Cancel",
+    "saveButton": "Save Changes",
+    "successMessage": "Changes saved successfully!",
+    "errorMessage": "Failed to save changes!",
+    "uploadErrorMessage": "Failed in uploading image"
+  },
+  "securitySection": {
+    "title": "Security",
+    "description": "Manage your account security and password settings",
+    "statusGood": "Your account security status: Good",
+    "lastUpdated": "Last updated: {date}",
+    "currentPasswordLabel": "Current Password *",
+    "newPasswordLabel": "New Password *",
+    "confirmPasswordLabel": "Confirm New Password *",
+    "cancelButton": "Cancel",
+    "changePasswordButton": "Change Password",
+    "passwordMismatchMessage": "The new password and its confirmation do not match",
+    "errorMessage": "Failed to change the password"
+  },
+
+  "sidebar": {
+    "title": "Gaza Store for All",
+    "description": "All donations support the people of Gaza",
+    "nav": {
+      "products": "Products",
+      "addProduct": "Add Product",
+      "orders": "Orders",
+      "donations": "My Donations",
+      "settings": "Settings",
+      "home": "Home",
+      "logout": "Logout"
+    }
+  },
+
+
+  "card": {
+    "howItWorksTitle": "How It Works",
+    "howItWorksDescription": "Learn how your purchases make a difference for Gaza",
+    "realImpactTitle": "Real Impact",
+    "realImpactDescription": "Your purchases directly support families in Gaza through donations.",
+    "fullTransparencyTitle": "Full Transparency",
+    "fullTransparencyDescription": "Track where every dollar goes with our transparent donation process.",
+    "percentageTitle": "Customizable Donation",
+    "percentageDescription": "Choose the percentage of profits to donate to Gaza."
+  },
+
+  "hero": {
+    "title": "Support Gaza with Every Purchase",
+    "description": "Shop at Gaza Store and contribute to meaningful change through donations.",
+    "contactButton": "Contact Us",
+    "browseButton": "Browse Products"
+  },
+
+  "beneficiaries": {
+    "header": {
+      "title": "Stories from Gaza",
+      "subtitle": "Hear from those who have been directly impacted by your donations"
+    },
+    "testimonials": [
+      {
+        "text": "Thanks to your donations, we were able to rebuild our family home that was damaged in the destruction. Words cannot express our gratitude.",
+        "name": "Ahmed Abu Raida",
+        "role": "Shelter Project Beneficiary"
+      },
+      {
+        "text": "The medical supplies we received helped save the lives of dozens of children and injured people. Donating through this store is not just a sale, it’s a lifeline.",
+        "name": "Dr. Sumaya Al-Najjar",
+        "role": "Doctor at Al-Shifa Hospital"
+      },
+      {
+        "text": "Thanks to the donations received through Gaza Store for All, we provided family meals to hundreds of families in the most vulnerable areas.",
+        "name": "Dr. Mohammed Abdul Rahman",
+        "role": "Director of Gaza Relief Association"
+      }
+    ]
+  },
+  "donates": {
+    "header": {
+      "title": "Your Donations Make an Impact",
+      "subtitle": "Real stats showing the difference you're making"
+    },
+    "stats": [
+      { "value": "$124,850", "label": "Total Donations" },
+      { "value": "5,200+", "label": "Benefited Families" },
+      { "value": "18", "label": "Funded Projects" },
+      { "value": "100%", "label": "Transparency" }
+    ]
+  },
+
+  "product": {
+    "title": "Featured Products",
+    "description": "Top 10 products with high donation percentage",
+    "loadingMessage": "Loading...",
+    "errorMessage": "An error occurred",
+    "donationBadge": "{percentage}% For Donation",
+    "buyNowButton": "Buy Now"
+  },
+
+  "mainShoppingSection": {
+    "loadingMessage": "Loading...",
+    "errorPrefix": "Error:",
+    "errorMessage": "An error occurred",
+    "searchResultsFound": "{count} results found",
+    "clearSearchButton": "Clear Search",
+    "previousButton": "Previous",
+    "nextButton": "Next"
+  },
+  "shoppingHero": {
+    "title": "Shop for Gaza",
+    "subtitle": "Give All You Need",
+    "searchPlaceholder": "Search on Stufflus",
+    "searchButton": "Search"
+  },
+  "shoppingSidebar": {
+    "categoryTitle": "Category",
+    "allCategories": "All Categories"
+  },
+  "productCard": {
+    "addToCartButton": "Add to Cart",
+    "displayDetailsButton": "Display Details"
+  },
+
+  "checkoutForm": {
+    "title": "Checkout",
+    "orderSummary": {
+      "title": "Order Summary",
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "freeShipping": "Free",
+      "total": "Total"
+    },
+    "form": {
+      "firstName": "First Name",
+      "lastName": "Last Name",
+      "email": "Email",
+      "phone": "Phone",
+      "address": "Address",
+      "addressPlaceholder": "Street Address",
+      "zipCode": "ZIP Code",
+      "zipCodePlaceholder": "ZIP Code",
+      "city": "City",
+      "cityPlaceholder": "City",
+      "delivery": {
+        "title": "Delivery",
+        "methodPlaceholder": "Delivery Method",
+        "home": "At home",
+        "agency": "Delivery Agency"
+      },
+      "payment": {
+        "title": "Payment Method",
+        "baridiMob": "Baridi-Mob",
+        "edahabiya": "Edahabiya",
+        "cardNumber": "Credit Card Number",
+        "cardNumberPlaceholder": "Credit Card Number",
+        "expirationDate": "Credit Card Expiration Date",
+        "expirationPlaceholder": "MM/YY",
+        "cvv": "Credit Card CVV",
+        "cvvPlaceholder": "CVV"
+      },
+      "placeOrderButton": "Place Order"
+    },
+    "validation": {
+      "firstNameInvalid": "First name must contain only letters",
+      "lastNameInvalid": "Last name must contain only letters",
+      "emailInvalid": "Invalid email format",
+      "phoneInvalid": "Invalid phone number",
+      "paymentMethodRequired": "Please select a payment method",
+      "cartInvalid": "Cart validation failed: "
+    },
+    "error": {
+      "paymentCreationFailed": "Error creating payment. Please try again.",
+      "paymentRequestFailed": "Payment request failed"
+    }
+  },
+  "shoppingCart": {
+    "totalLabel": "Total",
+    "emptyCartMessage": "The cart is empty",
+    "addProductsPrompt": "Add some products to continue",
+    "clearCartButton": "Clear Cart",
+    "validateCartButton": "Validate Cart"
+  },
+  "Shopping_Cart": "Your Shopping Cart",
+
+  "updateProduct": {
+    "title": "Update Product",
+    "error": {
+      "categoriesLoadFailed": "Failed to load categories",
+      "productFetchFailed": "Failed to fetch product",
+      "updateFailed": "Failed to update product"
+    },
+    "validation": {
+      "titleRequired": "Product title is required",
+      "statusRequired": "Product status is required",
+      "categoryRequired": "Product category is required"
+    },
+    "successMessage": "Product updated successfully!",
+    "form": {
+      "titleLabel": "Product Name",
+      "priceLabel": "Price",
+      "categoryLabel": "Category",
+      "categoryPlaceholder": "Select product category",
+      "statusLabel": "Status",
+      "status": {
+        "available": "Available",
+        "pending": "Pending Review",
+        "sold": "Sold"
+      },
+      "donationPercentageLabel": "Donation Percentage",
+      "descriptionLabel": "Description",
+      "submitButton": "Save Changes"
+    }
+  },
+  "productsDashboard": {
+    "title": "Products Dashboard",
+    "subtitle": "Manage your products and track their performance",
+    "stats": {
+      "totalProducts": "Total Products",
+      "pendingReview": "Pending Review",
+      "soldProducts": "Sold Products",
+      "totalDonations": "Total Donations"
+    },
+    "AllProducts": "All Products",
+    "searchPlaceholder": "Search by product name or category...",
+    "addProductButton": "Add New Product",
+    "tableHeaders": {
+      "product": "Product",
+      "category": "Category",
+      "price": "Price",
+      "status": "Status",
+      "actions": "Actions",
+      "date": "Adding date"
+    },
+    "noCategory": "No Category",
+    "status": {
+      "available": "Available",
+      "pending": "Pending",
+      "sold": "Sold"
+    },
+    "actions": {
+      "view": "View",
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "confirmDelete": "Are you sure you want to delete this product? This action cannot be undone.",
+    "deleteSuccess": "Product deleted successfully!",
+    "deleteFailed": "Failed to delete product"
+  },
+
+  "displayProductDetails": {
+    "productNameLabel": "Product Name",
+    "priceLabel": "Price",
+    "statusLabel": "Status:",
+    "status": {
+      "available": "Available",
+      "sold": "Sold",
+      "pending": "Pending"
+    },
+    "categoryLabel": "Category:",
+    "noCategory": "Undefined",
+    "addedDateLabel": "Added Date:",
+    "editButton": "Edit Product",
+    "descriptionTitle": "Product Description",
+    "donationTitle": "Donations from Profits",
+    "donationDescription1": "All profits from selling this product will go to support the people of Gaza.",
+    "donationDescription2": "Your donation will reach directly to the needy families in the Gaza Strip."
+  },
+
+  "donations": {
+    "title": "Donations",
+    "subtitle": "Track your donations and their impact on Gaza",
+    "loading": "Loading...",
+    "error": {
+      "fetchFailed": "Failed to fetch donations. Please try again later.",
+      "transferFailed": "Failed to mark as transferred"
+    },
+    "success": {
+      "transferred": "Marked as transferred successfully!"
+    },
+    "stats": {
+      "total": "Total Donations",
+      "pending": "Pending Transfer",
+      "completed": "Completed Donations"
+    },
+    "table": {
+      "title": "Your Donations",
+      "headers": {
+        "id": "ID",
+        "productId": "Product ID",
+        "buyer": "Buyer",
+        "seller": "Seller",
+        "amount": "Amount",
+        "status": "Status",
+        "date": "Date",
+        "actions": "Actions"
+      }
+    },
+    "filters": {
+      "all": "All",
+      "pending": "Pending",
+      "completed": "Completed"
+    },
+    "status": {
+      "pending": "Pending",
+      "completed": "Completed"
+    },
+    "actions": {
+      "transfer": "Transfer"
+    },
+    "noDonations": "No donations to display",
+    "impact": {
+      "title": "Impact of Your Donations",
+      "description": "Thanks to your generous donations, we have been able to provide assistance to many families in Gaza.",
+      "families": "Benefited Families",
+      "meals": "Meals",
+      "childrenEducation": "Children Receiving Education",
+      "medicalCases": "Medical Cases Treated"
+    }
+  },
+  "addProduct": {
+    "title": "Add New Product",
+    "subtitle": "Add your product and support the people of Gaza through donations",
+    "confirmDeleteImage": "Are you sure you want to delete this image?",
+    "successMessage": "✅ Product added with images successfully!",
+    "errorMessage": "❌ Failed to add product",
+    "form": {
+      "titleLabel": "Product Name *",
+      "titlePlaceholder": "Enter product name",
+      "descriptionLabel": "Description",
+      "descriptionPlaceholder": "Enter product description",
+      "priceLabel": "Price *",
+      "pricePlaceholder": "Enter product price",
+      "categoryLabel": "Category *",
+      "categoryPlaceholder": "Select product category",
+      "statusLabel": "Status *",
+      "status": {
+        "available": "Available",
+        "pending": "Pending Review",
+        "sold": "Sold"
+      },
+      "imagesLabel": "Product Images",
+      "imagesUploadText": "Click or drag to upload images",
+      "imagesSupportedFormats": "Supported formats: JPG, PNG, GIF (Max 5MB)",
+      "donationTitle": "Donation Percentage",
+      "donationDescription": "Choose the percentage of profits to donate to Gaza",
+      "donationPercentageLabel": "Donation Percentage",
+      "donationAllProfits": "All profits will go to support the people of Gaza",
+      "donationPercentageText": "{percent}% of profits will go to support the people of Gaza",
+      "cancelButton": "Cancel",
+      "submitButton": "Add Product",
+      "submitting": "Adding Product..."
+    }
+  }
+}

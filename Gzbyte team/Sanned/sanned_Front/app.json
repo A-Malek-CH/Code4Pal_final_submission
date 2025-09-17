@@ -1,0 +1,66 @@
+{
+  "expo": {
+    "name": "sanned",
+    "slug": "sanned",
+    "version": "1.0.0",
+    "scheme": "sanned",
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/logo.jpg"
+    },
+    "notification": {
+      "icon": "./assets/notification-icon.jpg",
+      "color": "#4a8a28"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-dev-launcher",
+        {
+          "launchMode": "most-recent"
+        }
+      ],
+      "expo-font",
+      "expo-web-browser",
+      "expo-mail-composer"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "tsconfigPaths": true
+    },
+    "orientation": "portrait",
+    "icon": "./assets/logo.jpg",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/logo.jpg",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/logo.jpg",
+        "backgroundColor": "#ffffff"
+      },
+      "permissions": [
+        "CAMERA",
+        "CAMERA_ROLL",
+        "NOTIFICATIONS",
+        "LOCATION"
+      ],
+      "package": "com.kinishiro.sanned"
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "43c49977-c43d-49fb-81fc-9aaf23fafa7b"
+      }
+    }
+  }
+}

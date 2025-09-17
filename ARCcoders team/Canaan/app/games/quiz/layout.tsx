@@ -1,0 +1,16 @@
+import type React from "react";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+	title: "Mind Map Quiz",
+	description: "Created with v0",
+	generator: "v0.dev",
+};
+
+export default function RootLayout({
+	children,
+}: Readonly<{
+	children: React.ReactNode;
+}>) {
+	return <main>{children}</main>;
+}

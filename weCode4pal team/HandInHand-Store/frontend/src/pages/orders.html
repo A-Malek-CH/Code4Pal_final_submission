@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الطلبات - متجر غزة للجميع</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Palestinian Color Scheme */
+        :root {
+            --green: #007A3D;
+            --dark-green: #006a34;
+            --black: #000000;
+            --white: #FFFFFF;
+            --red: #CE1126;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333;
+            --gold: #FFD700;
+        }
+
+        /* Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-gray);
+            color: var(--black);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 250px;
+            background-color: var(--black);
+            color: var(--white);
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 20px 0;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            z-index: 1000;
+        }
+
+        .logo-section {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 20px;
+        }
+
+        .logo-section h1 {
+            font-size: 22px;
+            margin-bottom: 5px;
+            color: var(--white);
+        }
+
+        .logo-section p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .nav-links {
+            list-style: none;
+            flex: 1;
+        }
+
+        .nav-links li a {
+            display: flex;
+            align-items: center;
+            padding: 15px 25px;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s;
+            border-left: 4px solid transparent;
+        }
+
+        .nav-links li a:hover {
+            background: rgba(255,255,255,0.05);
+        }
+
+        .nav-links li a.active {
+            background: rgba(255,255,255,0.1);
+            border-left: 4px solid var(--green);
+        }
+
+        .nav-links li a i {
+            margin-left: 10px;
+            font-size: 18px;
+            width: 25px;
+        }
+
+        .user-section {
+            padding: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 20px;
+        }
+
+        .user-info h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .user-info p {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-right: 250px;
+            padding: 30px 40px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .page-header h1 {
+            font-size: 32px;
+            color: var(--black);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-header h1::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            right: 50%;
+            transform: translateX(50%);
+            width: 100px;
+            height: 3px;
+            background: var(--green);
+        }
+
+        .page-header p {
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 20px auto 0;
+            font-size: 18px;
+        }
+
+        /* Orders Container */
+        .orders-container {
+            background: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            padding: 40px;
+            margin-bottom: 60px;
+        }
+
+        /* Filters and Search */
+        .orders-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px 14px 50px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+
+        .filters {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 12px 20px;
+            background: var(--light-gray);
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--green);
+            color: var(--white);
+            border-color: var(--green);
+        }
+
+        /* Orders Table */
+        .orders-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .orders-table th {
+            text-align: right;
+            padding: 15px;
+            background-color: var(--light-gray);
+            font-weight: 600;
+            color: var(--dark-gray);
+            border-bottom: 2px solid #ddd;
+        }
+
+        .orders-table td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .orders-table tr:hover {
+            background-color: rgba(0, 122, 61, 0.03);
+        }
+
+        .order-id {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .customer-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .customer-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+        }
+
+        .customer-avatar img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .status-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .status-pending {
+            background: #FFF3CD;
+            color: #856404;
+        }
+
+        .status-processing {
+            background: #CCE5FF;
+            color: #004085;
+        }
+
+        .status-shipped {
+            background: #D4EDDA;
+            color: #155724;
+        }
+
+        .status-delivered {
+            background: #D1ECF1;
+            color: #0C5460;
+        }
+
+        .status-cancelled {
+            background: #F8D7DA;
+            color: #721C24;
+        }
+
+        .action-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+            margin-left: 5px;
+        }
+
+        .view-btn {
+            background: var(--green);
+            color: var(--white);
+        }
+
+        .view-btn:hover {
+            background: var(--dark-green);
+        }
+
+        .edit-btn {
+            background: var(--light-gray);
+            color: var(--dark-gray);
+        }
+
+        .edit-btn:hover {
+            background: #e0e0e0;
+        }
+
+        /* Order Details Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            display: none;
+        }
+
+        .order-modal {
+            background: var(--white);
+            border-radius: 15px;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+        }
+
+        .modal-header {
+            padding: 20px 30px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-header h2 {
+            font-size: 24px;
+            color: var(--black);
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--dark-gray);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .order-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .detail-card {
+            background: var(--light-gray);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .detail-card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--black);
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .detail-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .detail-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .detail-label {
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+
+        .order-items {
+            margin-top: 30px;
+        }
+
+        .order-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-left: 20px;
+        }
+
+        .item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .item-price {
+            color: var(--green);
+            font-weight: 600;
+        }
+
+        .item-quantity {
+            color: var(--dark-gray);
+        }
+
+        .modal-footer {
+            padding: 20px 30px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 10px;
+        }
+
+        .pagination-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid #ddd;
+            background: var(--white);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .pagination-btn.active {
+            background: var(--green);
+            color: var(--white);
+            border-color: var(--green);
+        }
+
+        .pagination-btn:hover:not(.active) {
+            background: var(--light-gray);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .sidebar {
+                width: 70px;
+                overflow: hidden;
+            }
+            
+            .logo-section h1, .logo-section p, .user-info, .nav-links li a span {
+                display: none;
+            }
+            
+            .nav-links li a {
+                justify-content: center;
+                padding: 15px 5px;
+            }
+            
+            .nav-links li a i {
+                margin-left: 0;
+                font-size: 22px;
+            }
+            
+            .user-section {
+                justify-content: center;
+            }
+            
+            .main-content {
+                margin-right: 70px;
+            }
+            
+            .orders-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .search-box {
+                min-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                bottom: 0;
+                top: auto;
+                flex-direction: row;
+                padding: 0;
+            }
+            
+            .logo-section {
+                display: none;
+            }
+            
+            .nav-links {
+                display: flex;
+                flex: 1;
+                justify-content: space-around;
+                padding: 10px 0;
+            }
+            
+            .nav-links li {
+                flex: 1;
+            }
+            
+            .nav-links li a {
+                flex-direction: column;
+                padding: 10px 5px;
+                font-size: 12px;
+                text-align: center;
+                border-left: none;
+                border-top: 4px solid transparent;
+            }
+            
+            .nav-links li a.active {
+                border-left: none;
+                border-top: 4px solid var(--green);
+            }
+            
+            .nav-links li a i {
+                margin-left: 0;
+                margin-bottom: 5px;
+                font-size: 20px;
+            }
+            
+            .user-section {
+                display: none;
+            }
+            
+            .main-content {
+                margin-right: 0;
+                margin-bottom: 70px;
+                padding: 20px;
+            }
+            
+            .orders-container {
+                padding: 20px;
+            }
+            
+            .orders-table {
+                display: block;
+                overflow-x: auto;
+            }
+            
+            .filters {
+                justify-content: center;
+            }
+            
+            .order-details-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="logo-section">
+            <h1>متجر غزة للجميع</h1>
+            <p>كل التبرعات لدعم أهالي غزة</p>
+        </div>
+        
+        <ul class="nav-links">
+            <li><a href="/"><i class="fas fa-home"></i> <span>الرئيسية</span></a></li>
+            <li><a href="ProductsDashboard.jsx"><i class="fas fa-box-open"></i> <span>المنتجات</span></a></li>
+            <li><a href="/add-product"><i class="fas fa-plus-circle"></i> <span>إضافة منتج</span></a></li>
+            <li><a href="/dashboard"><i class="fas fa-chart-line"></i> <span>لوحة التحكم</span></a></li>
+            <li><a href="/orders" class="active"><i class="fas fa-shopping-cart"></i> <span>الطلبات</span></a></li>
+            <li><a href="/donations"><i class="fas fa-hand-holding-heart"></i> <span>تبرعاتي</span></a></li>
+            <li><a href="/settings"><i class="fas fa-cog"></i> <span>الإعدادات</span></a></li>
+        </ul>
+        
+        <div class="user-section">
+            <div class="user-avatar">م</div>
+            <div class="user-info">
+                <h3>محمد أحمد</h3>
+                <p>بائع</p>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="page-header">
+            <h1>إدارة الطلبات</h1>
+            <p>تابع طلباتك وسجل التبرعات لدعم أهالي غزة</p>
+        </div>
+
+        <div class="orders-container">
+            <div class="orders-header">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="ابحث عن طلب...">
+                </div>
+                
+                <div class="filters">
+                    <div class="filter-btn active">
+                        <i class="fas fa-list"></i>
+                        <span>الكل</span>
+                    </div>
+                    <div class="filter-btn">
+                        <i class="fas fa-clock"></i>
+                        <span>قيد الانتظار</span>
+                    </div>
+                    <div class="filter-btn">
+                        <i class="fas fa-truck"></i>
+                        <span>قيد التوصيل</span>
+                    </div>
+                    <div class="filter-btn">
+                        <i class="fas fa-check-circle"></i>
+                        <span>مكتمل</span>
+                    </div>
+                </div>
+            </div>
+            
+            <table class="orders-table">
+                <thead>
+                    <tr>
+                        <th>رقم الطلب</th>
+                        <th>العميل</th>
+                        <th>التاريخ</th>
+                        <th>المبلغ</th>
+                        <th>الحالة</th>
+                        <th>الإجراءات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="order-id">#12345</td>
+                        <td>
+                            <div class="customer-info">
+                                <div class="customer-avatar">أ</div>
+                                <div>أحمد سليمان</div>
+                            </div>
+                        </td>
+                        <td>12/05/2023</td>
+                        <td>150.00 ₪</td>
+                        <td><span class="status-badge status-pending">قيد الانتظار</span></td>
+                        <td>
+                            <button class="action-btn view-btn" onclick="openOrderModal()"><i class="fas fa-eye"></i></button>
+                            <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="order-id">#12346</td>
+                        <td>
+                            <div class="customer-info">
+                                <div class="customer-avatar">ف</div>
+                                <div>فاطمة عبد الله</div>
+                            </div>
+                        </td>
+                        <td>11/05/2023</td>
+                        <td>275.50 ₪</td>
+                        <td><span class="status-badge status-processing">قيد التجهيز</span></td>
+                        <td>
+                            <button class="action-btn view-btn" onclick="openOrderModal()"><i class="fas fa-eye"></i></button>
+                            <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="order-id">#12347</td>
+                        <td>
+                            <div class="customer-info">
+                                <div class="customer-avatar">م</div>
+                                <div>مريم خالد</div>
+                            </div>
+                        </td>
+                        <td>10/05/2023</td>
+                        <td>89.00 ₪</td>
+                        <td><span class="status-badge status-shipped">تم الشحن</span></td>
+                        <td>
+                            <button class="action-btn view-btn" onclick="openOrderModal()"><i class="fas fa-eye"></i></button>
+                            <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="order-id">#12348</td>
+                        <td>
+                            <div class="customer-info">
+                                <div class="customer-avatar">ي</div>
+                                <div>يوسف إبراهيم</div>
+                            </div>
+                        </td>
+                        <td>09/05/2023</td>
+                        <td>420.75 ₪</td>
+                        <td><span class="status-badge status-delivered">تم التوصيل</span></td>
+                        <td>
+                            <button class="action-btn view-btn" onclick="openOrderModal()"><i class="fas fa-eye"></i></button>
+                            <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="order-id">#12349</td>
+                        <td>
+                            <div class="customer-info">
+                                <div class="customer-avatar">س</div>
+                                <div>سارة محمد</div>
+                            </div>
+                        </td>
+                        <td>08/05/2023</td>
+                        <td>195.25 ₪</td>
+                        <td><span class="status-badge status-cancelled">ملغي</span></td>
+                        <td>
+                            <button class="action-btn view-btn" onclick="openOrderModal()"><i class="fas fa-eye"></i></button>
+                            <button class="action-btn edit-btn"><i class="fas fa-edit"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="pagination">
+                <div class="pagination-btn active">1</div>
+                <div class="pagination-btn">2</div>
+                <div class="pagination-btn">3</div>
+                <div class="pagination-btn"><i class="fas fa-chevron-left"></i></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Order Details Modal -->
+    <div class="modal-overlay" id="orderModal">
+        <div class="order-modal">
+            <div class="modal-header">
+                <h2>تفاصيل الطلب #12345</h2>
+                <button class="close-modal" onclick="closeOrderModal()">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="order-details-grid">
+                    <div class="detail-card">
+                        <h3>معلومات الطلب</h3>
+                        <div class="detail-item">
+                            <span class="detail-label">رقم الطلب:</span>
+                            <span>#12345</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">تاريخ الطلب:</span>
+                            <span>12/05/2023 - 10:30 صباحاً</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">حالة الطلب:</span>
+                            <span class="status-badge status-pending">قيد الانتظار</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">طريقة الدفع:</span>
+                            <span>بطاقة ائتمان</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <h3>معلومات العميل</h3>
+                        <div class="detail-item">
+                            <span class="detail-label">الاسم:</span>
+                            <span>أحمد سليمان</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">البريد الإلكتروني:</span>
+                            <span>ahmed@example.com</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">الهاتف:</span>
+                            <span>+970 599 123456</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-card">
+                        <h3>عنوان التوصيل</h3>
+                        <div class="detail-item">
+                            <span class="detail-label">العنوان:</span>
+                            <span>غزة - حي الشجاعية - شارع عمر المختار</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">المدينة:</span>
+                            <span>غزة</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-items">
+                    <h3>المنتجات المطلوبة</h3>
+                    
+                    <div class="order-item">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1999&q=80" alt="Product Image">
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">ساعة ذكية فاخرة</div>
+                            <div class="item-price">150.00 ₪</div>
+                            <div class="item-quantity">الكمية: 1</div>
+                        </div>
+                    </div>
+                    
+                    <div class="order-item">
+                        <div class="item-image">
+                            <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1964&q=80" alt="Product Image">
+                        </div>
+                        <div class="item-details">
+                            <div class="item-name">سماعات لاسلكية</div>
+                            <div class="item-price">85.50 ₪</div>
+                            <div class="item-quantity">الكمية: 1</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="detail-card" style="margin-top: 20px;">
+                    <h3>ملخص الدفع</h3>
+                    <div class="detail-item">
+                        <span class="detail-label">مجموع الطلب:</span>
+                        <span>235.50 ₪</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">خصم:</span>
+                        <span>0.00 ₪</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">الشحن:</span>
+                        <span>15.00 ₪</span>
+                    </div>
+                    <div class="detail-item" style="font-size: 18px; font-weight: bold; margin-top: 10px;">
+                        <span class="detail-label">المجموع الكلي:</span>
+                        <span style="color: var(--green);">250.50 ₪</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <button class="form-btn cancel-btn" onclick="closeOrderModal()">إغلاق</button>
+                <button class="form-btn submit-btn">طباعة الفاتورة</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to open order details modal
+        function openOrderModal() {
+            document.getElementById('orderModal').style.display = 'flex';
+        }
+        
+        // Function to close order details modal
+        function closeOrderModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+        
+        // Close modal when clicking outside
+        document.getElementById('orderModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeOrderModal();
+            }
+        });
+        
+        // Filter buttons functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Here you would filter the orders based on the selected filter
+                // This is just a simulation
+                const filterType = this.querySelector('span').textContent;
+                alert(`تم تطبيق عامل التصفية: ${filterType}`);
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.querySelector('.search-box input');
+        
+        searchInput.addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                // Here you would search for orders
+                alert(`بحث عن: ${this.value}`);
+            }
+        });
+    </script>
+</body>
+</html>

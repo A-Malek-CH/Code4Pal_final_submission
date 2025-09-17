@@ -1,0 +1,128 @@
+Objective: Your task is to adapt the provided single-player React component for a "Historical Geography Game" into a real-time, multiplayer game using Cloudflare Workers and Durable Objects. The backend will become the single source of truth for the game state, and the React frontend will be modified to communicate with it via WebSockets.
+Starting Point: The Existing React Component
+Assume the following React component (InteractiveHistoricalMap.tsx) is the starting point for the client-side code. The core logic for scoring and game events is already present within it.
+code
+Tsx
+// PASTE THE ENTIRE REACT COMPONENT CODE HERE
+// (I am omitting it for brevity, but you should include the full code you provided)
+"use client";
+import { useState, useEffect, useRef } from "react";
+// ... all the way to the end of the file
+Required Architecture & Game Flow
+The final application should follow this multiplayer architecture:
+React Client (Modified InteractiveHistoricalMap.tsx):
+Will connect to a specific game room (/game/[gameId]) via a WebSocket.
+Will no longer manage its own gameState. Instead, it will receive state updates from the server and re-render the UI.
+When a player acts (e.g., places an event on the map and sets a year), it will send this action to the server instead of processing it locally.
+It must be able to display the actions and scores of all players in the game.
+Cloudflare Worker (index.ts):
+Acts as the entry point.
+Handles HTTP requests like GET /game/[gameId].
+Identifies the gameId from the URL, gets the corresponding DurableObject stub, and upgrades the client's connection to a WebSocket, handing it off to the DO.
+Durable Object (durable-object.ts):
+The "Game Room" and the authoritative source of truth.
+Manages WebSocket connections for all players in the room.
+Contains the entire game state, including the list of events, player data (ID, score, current answer), the current round, and timers.
+Crucially, the game logic from the React component (like calculateScore) must be ported to the Durable Object.
+Detailed Multiplayer Game Logic (To be implemented in the Durable Object)
+Game State: The DO must maintain a state object. Its structure should be:
+code
+TypeScript
+interface Player {
+  id: string;
+  score: number;
+  // The answer for the current round
+  currentAnswer?: {
+    coordinates: [number, number];
+    year: number;
+  };
+}
+
+interface GameState {
+  gameId: string;
+  players: Player[];
+  events: GameEvent[]; // From the original component's `gameEvents`
+  currentEventIndex: number;
+  roundStatus: 'waiting' | 'active' | 'finished';
+  roundTimer: number;
+}
+Game Flow:
+When the first player connects, the game is initialized.
+When a second player connects, the game can begin. The DO starts the first round.
+Start Round: The DO sends a message to all clients indicating the new round has started, including the details of the event to be placed (e.g., { type: "newRound", payload: { event: gameEvents[0] } }). A 30-second timer begins on the server.
+Player Submits Answer: A player on the client places the event and adjusts the year slider. When they confirm, the client sends their answer to the DO.
+End Round: The round ends when the server-side timer reaches zero OR all connected players have submitted an answer.
+Calculate Scores: The DO iterates through all player answers for the round. It uses a server-side version of the calculateScore function (ported from your React component) to calculate the score for each player.
+Broadcast Results: The DO broadcasts the results of the round to all players. This message should include each player's submitted location/year, their score for the round, and the correct location/year. This allows clients to display markers for everyone's guesses.
+After a 5-second pause, the DO starts the next round.
+The game ends when all events have been played. The DO broadcasts a gameOver message with the final scores.
+WebSocket Communication API
+Define a clear API for client-server communication.
+Client-to-Server (C2S) Messages:
+code
+JSON
+// Sent when a player submits their guess for the current event
+{
+  "type": "submitAnswer",
+  "payload": {
+    "userCoordinates": [48.85, 2.35],
+    "userYear": 1789
+  }
+}
+Server-to-Client (S2C) Messages:
+code
+JSON
+// Broadcast to all players with the complete, updated game state
+{
+  "type": "gameStateUpdate",
+  "payload": {
+    // The full GameState object defined above
+    "players": [
+      { "id": "player1", "score": 85, "currentAnswer": { "coordinates": [48.85, 2.35], "year": 1789 } },
+      { "id": "player2", "score": 0, "currentAnswer": null }
+    ],
+    "currentEvent": { "id": "french-revolution", "name": "French Revolution Begins", ... },
+    "roundStatus": "active",
+    "roundTimer": 25
+  }
+}
+
+// Broadcast when a round ends, showing all results
+{
+  "type": "roundResult",
+  "payload": {
+    "correctAnswer": {
+      "coordinates": [48.8566, 2.3522],
+      "year": 1789
+    },
+    "playerResults": [
+      { "id": "player1", "scoreThisRound": 85, "answer": { "coordinates": [48.85, 2.35], "year": 1792 } },
+      { "id": "player2", "scoreThisRound": 62, "answer": { "coordinates": [50.1, 2.1], "year": 1800 } }
+    ]
+  }
+}
+
+// Broadcast when the game is over
+{
+    "type": "gameOver",
+    "payload": {
+        "finalScores": [
+            { "id": "player1", "score": 450 },
+            { "id": "player2", "score": 380 }
+        ]
+    }
+}
+Request for Code Generation
+Please provide the complete, runnable code for this multiplayer game, structured as follows and using TypeScript.
+wrangler.toml: The Cloudflare configuration file, defining the main worker and the GAME_ROOM Durable Object binding.
+src/index.ts: The main Cloudflare Worker entry point for handling HTTP requests and WebSocket upgrades.
+src/durable-object.ts: The GameRoom Durable Object class. It must:
+Implement the full multiplayer game logic as described above.
+Include a robust, server-side version of the calculateScore function from the React component. Use the Haversine formula for more accurate geographic distance calculation instead of the simple Pythagorean distance.
+Manage the game state, timers, and WebSocket connections.
+src/components/InteractiveHistoricalMap.tsx: The MODIFIED version of the provided React component. The key changes should be:
+Remove the local gameState managed by useState.
+Add a useEffect hook to establish and manage the WebSocket connection.
+Store the game state received from the server in a useState hook.
+Modify event handlers (like placing a marker) to send submitAnswer messages over the WebSocket instead of updating local state directly.
+Render the game based on the server-sent state, including showing other players' scores and their markers on the map during the "round result" phase.

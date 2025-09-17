@@ -1,0 +1,42 @@
+# Python cache
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# Model files and folders
+*.pth
+*.pt
+app/models/text_classifier/
+app/models/*.pth
+
+
+# Environment variables
+.env
+
+# Virtual environments
+venv/
+.env/
+
+# Editor settings
+.vscode/
+.idea/
+
+# Dart / Flutter
+.dart_tool/
+.packages
+.pub-cache/
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# IDEs
+.idea/
+.vscode/
+
+# Android / local settings
+**/local.properties
+**/.gradle
+
+# Xcode
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec

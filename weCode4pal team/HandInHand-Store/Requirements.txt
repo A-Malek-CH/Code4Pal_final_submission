@@ -1,0 +1,21 @@
+# HandInHand Store - Requirements
+
+Backend (Spring Boot - Java):
+- spring-boot-starter-data-jpa
+- spring-boot-starter-web
+- spring-boot-starter-mail
+- spring-boot-devtools (runtime, optional)
+- mysql-connector-j (runtime)
+- cloudinary-http44 (v1.34.0)
+- spring-boot-starter-test (scope: test)
+- spring-boot-starter-actuator
+
+Frontend (React.js):
+- react
+- react-dom
+- react-router-dom
+- axios
+- bootstrap / tailwindcss
+
+Database:
+- MySQL 8.x

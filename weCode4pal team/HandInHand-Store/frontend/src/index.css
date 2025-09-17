@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+body{
+  background-image: url("../public/Login.png");
+  background-repeat:no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+@media (max-width: 640px) {
+  .login-form {
+    padding: 1rem;
+  }
+}
