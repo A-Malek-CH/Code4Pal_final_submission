@@ -32,12 +32,12 @@ Here you will find for **each team**:
 
 | Team Name       | Project Title       | Demo Video | Figma Design (if any) | Completion | Notes |
 |-----------------|--------------------|------------|------------------------|------------|-------|
+| **4 Palestine** | Lives              | [Demo](https://drive.google.com/drive/folders/1ddWdV5xdTxNkx2gwHe5ZOe8mksQD4TA4?usp=drive_link) | [Figma](https://www.figma.com/design/Y2sHtAvWClSOdQxPdwgsqq/Lives?node-id=0-1&p=f&t=vB3xlwVdtvHlqhQD-0) | ⚠️ 95% | Features complete but needs more testing; not production ready yet. |
+| **ARC Coders**  | Canaan             | [Video](https://youtu.be/_6EyjKUJVZU?feature=shared) | – | ❌ No | Sensitive keys were mistakenly included in submission. |
 | **Zero.x**      | AL RAHMA           | [Video](https://youtu.be/G4LkOOWPZ-U?feature=shared) | – | ❌ No | - |
 | **GZbyte**      | Sanned             | [Video](https://drive.google.com/file/d/1jLFLnI7xyREn4gBXG-xsSs4LrNVplSqJ/view?usp=drivesdk) | [Figma](https://www.figma.com/design/grFzzeBa5H0AxIm5DxrWcL/hackathon?node-id=0-1&t=WU0d6suL4gUjRiG2-1) | ❌ No | Backend and frontend complete but not linked. |
-| **Sawt**        | Sawt App           | [Video](https://mega.nz/folder/3Bg2yZJY#-Syzql6WehEyyUyUjBuePw) | – | ❌ No | Link contains video + branding. |
 | **OliveCoders** | SAWTNA             | [Video](https://drive.google.com/drive/folders/1Y5sCCLjreMcqsupD9zS16p9of1md2OeH) | [Figma](https://www.figma.com/design/zq4J9yK9ETDT2vrK7rblcA/Sawtna?node-id=0-1&p=f&t=nb4WdzwyUTqbCIXn-0) | ✅ Yes | – |
-| **ARC Coders**  | Canaan             | [Video](https://youtu.be/_6EyjKUJVZU?feature=shared) | – | ❌ No | Sensitive keys were mistakenly included in submission. |
-| **4 Palestine** | Lives              | [Demo](https://drive.google.com/drive/folders/1ddWdV5xdTxNkx2gwHe5ZOe8mksQD4TA4?usp=drive_link) | [Figma](https://www.figma.com/design/Y2sHtAvWClSOdQxPdwgsqq/Lives?node-id=0-1&p=f&t=vB3xlwVdtvHlqhQD-0) | ⚠️ 95% | Features complete but needs more testing; not production ready yet. |
+| **Sawt**        | Sawt App           | [Video](https://mega.nz/folder/3Bg2yZJY#-Syzql6WehEyyUyUjBuePw) | – | ❌ No | Link contains video + branding. |
 | **WeCode4Pal**  | HandInHand Store   | [Demo](https://drive.google.com/drive/folders/1nhYV_pYQbNXYOJa8iVo9sCRBKIy3pSIw?usp=drive_link) | [Figma](https://www.figma.com/design/BBMlDiyXBKqTJdsMWF8ZMI/HandInHand-Store?node-id=86-656&t=S44iWXMB6GQ4LmJk-1) | ❌ No | Functional but not final; can be optimized further. |
 
 ---
