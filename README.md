@@ -40,31 +40,6 @@ Here you will find for **each team**:
 | **Sawt**        | Sawt App           | [Video](https://mega.nz/folder/3Bg2yZJY#-Syzql6WehEyyUyUjBuePw) | – | ❌ No | Link contains video + branding. |
 | **WeCode4Pal**  | HandInHand Store   | [Demo](https://drive.google.com/file/d/1zkRUDZsKwKPWlVVc_5SvgB40R_C231rt/view?usp=sharing) | [Figma](https://www.figma.com/design/BBMlDiyXBKqTJdsMWF8ZMI/HandInHand-Store?node-id=86-656&t=S44iWXMB6GQ4LmJk-1) | ❌ No | Functional but not final; can be optimized further. |
 
----
-## 📝 Evaluation Criteria
-### 1️⃣ Project Completion – 30%
-- Do the core features work as intended?  
-- Does it match what the team proposed in the idea phase?  
-- Does the video clearly show all main features?  
----
-### 2️⃣ Technical Complexity – 30%
-- How advanced/difficult is the solution?  
-- Were advanced technologies used (AI, Computer Vision, NLP, etc.)?  
-- Does the project go beyond surface-level solutions?  
----
-### 3️⃣ Clean Code & Documentation – 15%
-- Is the code organized and readable, with a clear README and requirements.txt?  
-- Is it easy to run and reuse?  
----
-### 4️⃣ Robustness & Reliability – 25%
-- Does the project run stably?  
-- Are there no frequent crashes?  
-- Can it be extended or scaled in the future?  
----
-## ⭐ Bonus Points (up to +5% each)
-- Designing the app in **Figma** (+5%).  
-- Creating a **visual identity** (logo, branding, colors) (+5%).  
-- Adding **voice-over explanation** in the video (+5%).  
 
 
 
